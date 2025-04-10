@@ -1,0 +1,330 @@
+/* 
+  page.module.scss
+  Styles for the Fucsiateen page component.
+  This file uses SCSS syntax to define styling for various sections,
+  including the header, product section, image section, and footer.
+*/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Comic Neue";
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+  height: 400px; // Adjust as desired.
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Ensure stacking of items: title + callout container */
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+
+  h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 6rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    margin: 0.5rem 0;
+  }
+}
+
+/* The container for the background image in the header */
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* 
+  New call-out box for the extra text.
+  We combine a border and a background color #4ed4da.
+*/
+.callout {
+  position: relative;
+  z-index: 1; /* Make sure it's above the background image */
+  background-color: #4ed4da;
+  /* If you only want the border and no colored background, remove the background-color property. */
+
+  border: 2px solid #4ed4da; /* Keep the border the same color for a solid look */
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  color: #ffffff;
+  font-size: 2rem;
+  & h2 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
+
+/* Container for the header background image */
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Product Section */
+.productSection {
+  width: 70%;
+  margin: 2rem auto;
+
+  /* Title styling if you want a distinct look */
+  .sectionTitle {
+    background-color: #4ed4da; /* teal header bar */
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.8rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+  }
+
+  /* Grid container for product cards */
+  .productGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: auto;
+  }
+
+  /* Individual card styling */
+  .productCard {
+    background-color: #ffffff;
+    border: 2px dotted #4ed4da; /* dotted border */
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    h3 {
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+      color: #333333;
+    }
+
+    p {
+      margin: 0.5rem 0 1rem;
+      font-size: 0.95rem;
+      color: #666666;
+    }
+  }
+
+  /* Product image styling */
+  .productImage {
+    width: 60%;
+    height: auto;
+    object-fit: cover; /* if images have different aspect ratios */
+    border-radius: 4px;
+  }
+
+  /* "Ver más" button styling */
+  .moreBtn {
+    background-color: #4ed4da;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #36b5bb; /* slightly darker teal on hover */
+    }
+  }
+}
+
+/* Container for product lines */
+.productLines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Individual product styling */
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 150px;
+
+  .productIcon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+
+/* page.module.scss */
+
+/* 
+  CLOUD SECTION:
+  Pink shapes top & bottom, content in the middle.
+*/
+.cloudSection {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  /* The main container can have extra space/padding if you like */
+  padding: 4rem 0;
+
+  .cloudShapeTop,
+  .cloudShapeBottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    svg {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .cloudShapeTop {
+    top: 0;
+  }
+
+  .cloudShapeBottom {
+    bottom: 0;
+  }
+
+  /* MIDDLE CONTENT: no background color, so pink shows through */
+  .cloudContent {
+    position: relative;
+    z-index: 1; /* Ensure it's above the shape paths */
+    max-width: 1200px;
+    margin: 5rem auto; /* pushes content away from top/bottom shapes */
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .cloudTitle {
+    color: #4ed4da; /* teal color for text */
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .cloudImageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cloudImage {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* MAP SECTION */
+.mapSection {
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: #333;
+  }
+}
+
+.mapContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  iframe {
+    width: 40rem; // Ancho en rem (puedes ajustar este valor)
+    height: 25rem; // Alto en rem
+    border: 0.3rem solid #ffddee; // Borde del mismo color que las nubes
+    border-radius: 0.5rem;
+  }
+}
+
+/* IMAGE SECTION */
+.img5Section {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+
+  .img5 {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* FOOTER SECTION */
+.footer {
+  background-color: #ffffff; /* White background */
+  color: #4ed4da; /* Teal text color, adjust if desired */
+  padding: 2rem 1rem;
+  text-align: center;
+
+  /* Top portion of footer (icon + contact info side by side) */
+  .footerTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
+    gap: 2rem; /* spacing between icon wrapper and contact info */
+    margin-bottom: 2rem; /* space above GIFs */
+  }
+
+  .footerIconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footerIcon {
+    /* Additional styling for icon if needed */
+  }
+
+  .contactInfo {
+    p {
+      margin: 0.3rem 0;
+      font-size: 1rem; /* adjust to your taste */
+    }
+  }
+
+  /* GIFs Section */
+  .gifsSection {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* spacing between butterfly GIFs */
+    margin-top: 1rem;
+
+    .butterflyGif {
+      /* Additional styling if needed (e.g., smaller or bigger) */
+    }
+  }
+}
