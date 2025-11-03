@@ -1,9 +1,39 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import "@fontsource/comic-neue";
-import { useRouter } from "next/navigation";
+import ImageCarousel from "@/app/components/ImageCarousel";
 import styles from "./page.module.scss";
+
+const productSlides = [
+  {
+    title: "Ropa interior niños",
+    description: "Bodies, camisas y conjuntos para máxima comodidad y libertad de movimiento.",
+    image: "/img/product1.png",
+    alt: "Ropa interior para niños",
+    href: "/catalog/nino",
+  },
+  {
+    title: "Pijama niños",
+    description: "Pijamas suaves y transpirables para garantizar dulces sueños y un buen descanso.",
+    image: "/img/product2.jpg",
+    alt: "Pijamas para niños",
+    href: "/catalog/pijama",
+  },
+  {
+    title: "Ropa interior niñas",
+    description: "Conjuntos cómodos y coloridos diseñados para acompañarlas cada día.",
+    image: "/img/product3.png",
+    alt: "Ropa interior para niñas",
+    href: "/catalog/nina",
+  },
+  {
+    title: "Vestidos de baño",
+    description: "Trajes de baño perfectos para disfrutar del agua con total libertad.",
+    image: "/img/vestido.jpg",
+    alt: "Niños jugando en la playa",
+    href: "/catalog/trajes",
+  },
+];
 
 /**
  * Main page component for the Fucsiateen website.
@@ -13,7 +43,6 @@ import styles from "./page.module.scss";
  */
 
 export default function Page() {
-  const router = useRouter();
   return (
     <main className={styles.container}>
       {/*
@@ -51,94 +80,8 @@ export default function Page() {
         <h2>Líneas de productos</h2>
       </div>
       <section className={styles.productSection}>
-        <div className={styles.productGrid}>
-          {/* Card 1 */}
-          <div className={styles.productCard}>
-            <Image
-              src="/img/product1.png"
-              alt="Ropa interior niños"
-              width={200}
-              height={200}
-              className={styles.productImage}
-            />
-            <h3>Ropa interior niños</h3>
-            <p>
-              Bodies, camisas, conjuntos para una máxima comodidad y libertad de
-              movimiento.
-            </p>
-            <button
-              className={styles.moreBtn}
-              onClick={() => router.push("/catalog/nino")}
-            >
-              Ver más
-            </button>
-          </div>
-
-          {/* Card 2 */}
-          <div className={styles.productCard}>
-            <Image
-              src="/img/product2.jpg"
-              alt="Pijama niños"
-              width={200}
-              height={200}
-              className={styles.productImage}
-            />
-            <h3>Pijama niños</h3>
-            <p>
-              Pijamas suaves y transpirables para garantizar dulces sueños y un
-              buen descanso.
-            </p>
-            <button
-              className={styles.moreBtn}
-              onClick={() => router.push("/catalog/pijama")}
-            >
-              Ver más
-            </button>
-          </div>
-
-          {/* Card 3 */}
-          <div className={styles.productCard}>
-            <Image
-              src="/img/product3.png"
-              alt="Ropa interior niñas"
-              width={200}
-              height={200}
-              className={styles.productImage}
-            />
-            <h3>Ropa interior niñas</h3>
-            <p>
-              Conjuntos cómodos y coloridos diseñados para niñas, ideales para
-              el día a día.
-            </p>
-            <button
-              className={styles.moreBtn}
-              onClick={() => router.push("/catalog/nina")}
-            >
-              Ver más
-            </button>
-          </div>
-
-          {/* Card 4 */}
-          <div className={styles.productCard}>
-            <Image
-              src="/img/vestido.jpg"
-              alt="Vestidos de baño"
-              width={200}
-              height={200}
-              className={styles.productImage}
-            />
-            <h3>Vestidos de baño</h3>
-            <p>
-              Ropa de baño perfecta para disfrutar de la playa o la piscina con
-              total libertad.
-            </p>
-            <button
-              className={styles.moreBtn}
-              onClick={() => router.push("/catalog/trajes")}
-            >
-              Ver más
-            </button>
-          </div>
+        <div className={styles.carouselWrapper}>
+          <ImageCarousel slides={productSlides} interval={6000} />
         </div>
       </section>
 
