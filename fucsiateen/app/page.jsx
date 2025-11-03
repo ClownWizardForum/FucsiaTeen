@@ -177,8 +177,8 @@ export default function Page() {
 
           {/* Right side: Contact Info */}
           <div className={styles.contactInfo}>
-            <p>Cel: +57 3000000000</p>
-            <p>Correo: ventaspfc@fucsiateen.com.co</p>
+            <p>Cel: +57 3214067890</p>
+            <p>Correo: ventas@fucsiateen.com.co</p>
             <p>
               Dirección: Cra. 81b #65a-42 of 201 San Marcos, Bogotá - Colombia
             </p>
